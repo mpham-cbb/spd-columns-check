@@ -1,187 +1,68 @@
-project_name
-==============================
+# Column Validator Web App
 
-[![Tests](https://github.com/your-username/your-project/actions/workflows/python-test.yml/badge.svg)](https://github.com/your-username/your-project/actions/workflows/python-test.yml) [![codecov](https://codecov.io/gh/your-username/your-project/graph/badge.svg)](https://codecov.io/gh/your-username/your-project)
-
-**Project Description:**
-
-A short description of the project.
+A Streamlit web application to validate if columns in submitted files match with pre-determined column configurations for different customers and product lines.
 
 ## Features
 
-- **Feature 1:** Description of the first key feature
-- **Feature 2:** Description of the second key feature
-- **Feature 3:** Description of the third key feature
-- Additional features that highlight your project's unique capabilities
+- **Multi-Customer Support**: 5 customers (ABC, SRS, QXO, NVR, WW)
+- **Product Line Selection**: 2 product lines per customer (MASTIC, VARIFORM)
+- **Column Validation**: 
+  - Essential Attribute columns (exact match required)
+  - Other columns (flexible matching)
+- **File Support**: CSV and Excel files (.csv, .xlsx, .xls)
+- **Validation Summary**: Detailed report of missing and extra columns
+- **Export Functionality**: Download validation reports as CSV
 
-## Command Line Interface (CLI)
+## Current Configuration
 
-The project provides a CLI for various tasks. To access the CLI, use the main command:
+### ABC - MASTIC (Fully Configured)
 
+**Essential Attribute Columns (21):**
+- Region, District Num, District Name, Branch, City, State
+- Customer, Customer Name, Tran Date, Start Date, End Date
+- Customer Invoice #, Item, Qty Sold, Unit of Measure
+- Deviation #, Type, Ship-to Number, Invoice Price, Net Price, Reason Code
+
+**Other Columns (23):**
+- Vendor Deal, Brand Line Description, Desc, Size, Description
+- Special Category, Description 2, Contractor, Ply Gem Item Number
+- PC per UOM, Converted Qty, Converted UOM, Branch/Location Combo
+- Vlookup, $ Off Per Carton, Transaction Month, Transaction Year
+- Deviation Begin Date, Deviation End Date, Total Amount Requested
+- Invoice Comments, Month Submitted
+
+## Installation
+
+1. Install dependencies:
 ```bash
-(venv) ➜ project-name --help
-
-Usage: project-name [OPTIONS] COMMAND [ARGS]...
-
-  Command Line Interface for various tasks.
-
-Options:
-  --help  Show this message and exit.
-
-Commands:
-  command1   Description of command1
-  command2   Description of command2
-  command3   Description of command3
+pip install -r requirements.txt
 ```
 
-## Setup
-
-### Prerequisites
-- Python 3.x
-- pip
-- virtualenv (recommended)
-
-### Installation
-
-Use the `Makefile` to set up your project:
-
+2. Run the application:
 ```bash
-# Create virtual environment
-make create_environment
-
-# Install development dependencies
-make dev-install  # or pip install -e ."[dev]"
-
-# Install pre-commit hooks
-pre-commit install
-
-# Setup initial configuration
-make setup
+streamlit run column_validator.py
 ```
 
-### Running the Project
+## Usage
 
-#### Basic Usage
+1. **Select Customer and Product Line**: Choose from the dropdown menus
+2. **Upload File**: Upload a CSV or Excel file
+3. **Review Results**: 
+   - View validation summary with metrics
+   - Check missing essential columns
+   - Review extra columns not in configuration
+4. **Export Report**: Download validation results as CSV
 
-```bash
-make run_fastapi_uvicorn
-```
+## Validation Logic
 
-#### Development Usage
+- **Essential Columns**: Must match exactly (case-sensitive)
+- **Other Columns**: Flexible matching, used for reference
+- **Missing Essential**: Columns required but not found in file
+- **Extra Columns**: Columns in file but not in predetermined list
 
-1. Update the `.env` file with necessary configuration:
+## Next Steps
 
-   ```env
-   LOG_LVL=DEBUG
-   ENV_STATE=LOCAL
-   DEBUG=True
-   ```
-
-2. Create a Launch Configuration in VSCode (optional):
-
-   Add the following to `.vscode/launch.json`:
-
-   ```json
-   {
-       "version": "0.2.0",
-       "configurations": [
-           {
-               "name": "Python Debugger",
-               "type": "debugpy",
-               "request": "launch",
-               "module": "uvicorn",
-               "args": [
-                   "src.interface.app:app",
-                   "--port",
-                   "8001",
-                   "--reload"
-               ],
-               "jinja": true
-           }
-       ]
-   }
-   ```
-
-3. Debug:
-   - Set breakpoints
-   - Start the debugger
-   - Inspect variables and step through code
-
-## Environment Variables
-
-Create a `.env` file:
-
-```bash
-cp .env.template .env
-```
-
-Fill in the required environment variables.
-
-## Performance and Testing
-
-### Latency Testing
-
-Use Locust for server load testing:
-
-```bash
-locust -f tests/load_tests.py --host=https://your-domain.com
--> and open `http://0.0.0.0:8089/
-```
-
-### Running Tests
-
-```bash
-# Run all tests
-make test
-
-# Run specific test types
-make test_unit
-make test_integration
-```
-
-## Documentation
-
-### Build Documentation
-
-```bash
-# Generate HTML documentation
-make build_doc
-
-# Open documentation
-cd docs/_build/html
-open index.html
-```
-
-## Makefile Commands
-
-| **Command**                | **Description**                        | **Usage**                     |
-|----------------------------|----------------------------------------|-------------------------------|
-| **create_environment**     | Sets up a Python virtual environment   | `make create_environment`     |
-| **dev-install**            | Installs development dependencies      | `make dev-install`            |
-| **format**                 | Formats code using Black               | `make format`                 |
-| **lint**                   | Formats and lints code                 | `make lint`                   |
-| **clean**                  | Removes bytecode, caches, etc.         | `make clean`                  |
-| **test**                   | Runs tests with coverage               | `make test`                   |
-| **build_doc**              | Generates HTML documentation           | `make build_doc`              |
-| **run**                    | Starts the application                 | `make run`                    |
-
-## Database Schema
-![Database Schema](reports/database_schema.png)
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## Contact
-
-Your Name - your.email@example.com
-
-Project Link: [https://github.com/your-username/your-project](https://github.com/your-username/your-project)
+- Configure remaining customer/product line combinations
+- Add case-insensitive matching options
+- Implement fuzzy matching for similar column names
+- Add batch file processing
