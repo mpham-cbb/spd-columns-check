@@ -244,21 +244,21 @@ def display_validation_summary(results: Dict, customer: str, product_line: str):
     if results["missing_essential"]:
         st.error("❌ **Missing Essential Columns** (Exact match required)")
         for col in sorted(results["missing_essential"]):
-            st.write(f"• {col}")
+            st.code(f"• {repr(col)}")
     else:
         st.success("✅ All essential columns are present!")
     
     if results["extra_columns"]:
         st.warning("⚠️ **Extra Columns** (Not in predetermined list)")
         for col in sorted(results["extra_columns"]):
-            st.write(f"• {col}")
+            st.code(f"• {repr(col)}")
     
     # Matching columns summary
     with st.expander("📋 Matching Columns Details"):
         if results["matching_essential"]:
             st.write("**✅ Matching Essential Columns:**")
             for col in sorted(results["matching_essential"]):
-                st.write(f"• {col}")
+                st.code(f"• {col}")
         
         if results["matching_other"]:
             st.write("**✅ Matching Other Columns:**")
@@ -422,6 +422,23 @@ def main():
             
             # Get column names
             file_columns = df.columns.tolist()
+            
+            # Show exact column names with repr() to see hidden characters
+            # st.write("**🔍 EXACT Column Names in Your File:**")
+            # for i, col in enumerate(file_columns):
+            #     st.code(f"{i+1}. {repr(col)}")
+            
+            # # Show expected columns
+            # if customer not in ["NVR", "WW"]:
+            #     config = COLUMN_CONFIGS[customer][product_line]
+            #     st.write("**📋 Expected Essential Columns:**")
+            #     for i, col in enumerate(config["essential"]):
+            #         st.code(f"{i+1}. {repr(col)}")
+            # else:
+            #     config = COLUMN_CONFIGS[customer]
+            #     st.write("**📋 Expected Essential Columns:**")
+            #     for i, col in enumerate(config["essential"]):
+            #         st.code(f"{i+1}. {repr(col)}")
             
             # Show file preview
             with st.expander("📄 File Preview"):
