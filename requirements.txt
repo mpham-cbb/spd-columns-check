@@ -1,7 +1,6 @@
 streamlit==1.28.1
 # pandas==2.1.1
+pandas==2.2.3
 openpyxl==3.1.2
 xlrd==2.0.1
 python-dotenv==1.0.0
-pandas>=2.2.3,<3           # first pandas series with Python 3.13 wheels
-numpy>=2.2                 # 2.2.x supports Python 3.13
