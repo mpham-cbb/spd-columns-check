@@ -105,7 +105,7 @@ def main():
             st.info(f"ℹ️ {customer} customer does not require product line selection")
             product_line = None
             # Show expected file pattern
-            st.markdown(f"**Expected file pattern:** `NET_ASP*`")
+            st.markdown(f"**Expected file pattern:** `Net_ASP*`")
         else:
             product_lines = list(COLUMN_CONFIGS[customer].keys())
             product_line = st.selectbox(
@@ -115,9 +115,9 @@ def main():
             )
             # Show expected file pattern
             if product_line == "MASTIC":
-                st.markdown(f"**Expected file pattern:** `NET_ASP_MASTIC*`")
+                st.markdown(f"**Expected file pattern:** `Net_ASP_MASTIC*`")
             elif product_line == "VARIFORM":
-                st.markdown(f"**Expected file pattern:** `NET_ASP_VF*`")
+                st.markdown(f"**Expected file pattern:** `Net_ASP_VF*`")
     
     # Show current configuration
     display_expected_configuration(customer, product_line)
