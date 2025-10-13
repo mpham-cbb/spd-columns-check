@@ -20,24 +20,24 @@ def validate_file_name(filename: str, customer: str, product_line: str) -> Tuple
     """
     # Case sensitive validation - do NOT convert to uppercase
     
-    # For NVR and WW customers, no product line needed, just NET_ASP*
+    # For NVR and WW customers, no product line needed, just Net_ASP*
     if customer in ["NVR", "WW"]:
-        if filename.startswith("NET_ASP"):
+        if filename.startswith("Net_ASP"):
             return True, ""
         else:
-            return False, f"File name must start with 'NET_ASP' (case sensitive) for {customer} customer"
+            return False, f"File name must start with 'Net_ASP' (case sensitive) for {customer} customer"
     
     # For other customers with product lines
     if product_line == "MASTIC":
-        if filename.startswith("NET_ASP_MASTIC"):
+        if filename.startswith("Net_ASP_MASTIC"):
             return True, ""
         else:
-            return False, "File name must start with 'NET_ASP_MASTIC' (case sensitive) for MASTIC product line"
+            return False, "File name must start with 'Net_ASP_MASTIC' (case sensitive) for MASTIC product line"
     elif product_line == "VARIFORM":
-        if filename.startswith("NET_ASP_VF"):
+        if filename.startswith("Net_ASP_VF"):
             return True, ""
         else:
-            return False, "File name must start with 'NET_ASP_VF' (case sensitive) for VARIFORM product line"
+            return False, "File name must start with 'Net_ASP_VF' (case sensitive) for VARIFORM product line"
     
     return True, ""
 
