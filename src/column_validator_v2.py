@@ -49,7 +49,7 @@ def check_authentication():
                     st.error("❌ Invalid credentials. Please try again.")
         
         # Show environment variable info in development
-        if os.getenv("STREAMLIT_ENV") == "development":
+        if os.getenv("STREAMLIT_ENV") == "production":
             with st.expander("🔧 Development Info"):
                 st.info("Environment variables for credentials:")
                 st.code("VALIDATOR_USERNAME=your_username\nVALIDATOR_PASSWORD=your_password")
