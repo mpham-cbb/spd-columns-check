@@ -31,7 +31,7 @@ def check_authentication():
         st.title("🔐 Authentication Required")
         st.markdown("Please enter your credentials to access the Column Validator")
         
-        # Get credentials from environment variables with fallback defaults
+        # Get credentials from environment variables
         valid_username = os.getenv("GEN_USERNAME")
         valid_password = os.getenv("GEN_PASSWORD")
         
@@ -47,9 +47,16 @@ def check_authentication():
                     st.rerun()
                 else:
                     st.error("❌ Invalid credentials. Please try again.")
+                    st.markdown(
+                        "<p style='font-size: 0.9em; color: gray;'>"
+                        "If you continue to experience login issues, please contact Mia Pham at "
+                        "<a href='mailto:nguyen.pham@cornerstone-bb.com'>nguyen.pham@cornerstone-bb.com</a>."
+                        "</p>",
+                        unsafe_allow_html=True,
+                    )
         
-        # Show environment variable info in development
-        if os.getenv("STREAMLIT_ENV") == "production":
+        # Optinal: show environment variable info in development
+        if os.getenv("STREAMLIT_ENV") == "development":
             with st.expander("🔧 Development Info"):
                 st.info("Environment variables for credentials:")
                 st.code("VALIDATOR_USERNAME=your_username\nVALIDATOR_PASSWORD=your_password")
