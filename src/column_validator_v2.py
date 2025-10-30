@@ -147,7 +147,11 @@ def main():
             if uploaded_file.name.endswith('.csv'):
                 df = pd.read_csv(uploaded_file)
             else:
-                df = pd.read_excel(uploaded_file, sheet_name='Working Copy')
+                # Use 'DATA' sheet for NVR and WW, 'Working Copy' for others
+                if customer in ["NVR", "WW"]:
+                    df = pd.read_excel(uploaded_file, sheet_name='DATA')
+                else:
+                    df = pd.read_excel(uploaded_file, sheet_name='Working Copy')
             
             # # Show detailed file analysis if enabled
             # if show_file_analysis:
