@@ -204,7 +204,8 @@ COLUMN_CONFIGS = {
                 "JDE #": "string",
                 "SPD": "string",
                 "Invoice Price": "float",
-                "SPD Cost": "float"
+                "SPD Cost": "float",
+                "Type": "string"
             },
             "other": {
                 "Vendor Contract #": "string",
