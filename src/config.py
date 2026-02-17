@@ -233,7 +233,7 @@ COLUMN_CONFIGS = {
                 "Unit of Measure": "string",
                 "Reason Code": "string",
                 "JDE #": "string",
-                'Reference "Customer PO"': "string",
+                "Reference Customer PO": "string",
                 "Type": "string",
                 "Invoice Price": "float",
                 "Net Price": "float"
