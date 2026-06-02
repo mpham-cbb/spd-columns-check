@@ -118,9 +118,14 @@ def display_expected_configuration(customer: str, product_line: str):
     if customer not in ["NVR", "WW"] and product_line:
         config = get_column_names(customer, product_line)
         expected_types = get_expected_data_types(customer, product_line)
-        
+
+        if product_line in ("MASTIC XREF", "VARIFORM XREF"):
+            config_label = f"View {customer} {product_line} Configuration"
+        else:
+            config_label = f"View {customer} - {product_line} Configuration"
+
         if config["essential"] or config["other"]:
-            with st.expander(f"📋 View {customer} - {product_line} Configuration"):
+            with st.expander(f"📋 {config_label}"):
                 if config["essential"]:
                     st.write("**Essential Columns (Exact match required):**")
                     for col in config["essential"]:

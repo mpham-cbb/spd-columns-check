@@ -38,7 +38,19 @@ def validate_file_name(filename: str, customer: str, product_line: str) -> Tuple
             return True, ""
         else:
             return False, "File name must start with 'Net_ASP_VF' (case sensitive) for VARIFORM product line"
-    
+    elif product_line == "MASTIC XREF":
+        expected_prefix = f"{customer}_MASTIC_XREF"
+        if filename.startswith(expected_prefix):
+            return True, ""
+        else:
+            return False, f"File name must start with '{expected_prefix}' (case sensitive) for MASTIC XREF product line"
+    elif product_line == "VARIFORM XREF":
+        expected_prefix = f"{customer}_VARIFORM_XREF"
+        if filename.startswith(expected_prefix):
+            return True, ""
+        else:
+            return False, f"File name must start with '{expected_prefix}' (case sensitive) for VARIFORM XREF product line"
+
     return True, ""
 
 def validate_columns(file_columns: List[str], customer: str, product_line: str) -> Dict:

@@ -68,14 +68,14 @@ COLUMN_CONFIGS = {
             "essential": {
                 "Region": "string",
                 "District Num": "string",
-                "District Name": "string", 
+                "District Name": "string",
                 "Branch": "string",
                 "City": "string",
                 "State": "string",
                 "Customer": "string",
                 "Customer Name": "string",
                 "Tran Date": "date",
-                "Start Date": "date", 
+                "Start Date": "date",
                 "End Date": "date",
                 "Customer Invoice #": "string",
                 "Item": "string",
@@ -109,6 +109,48 @@ COLUMN_CONFIGS = {
                 "Reference Delivery Instructions #1": "string",
                 "Month Submitted": "string"
             }
+        },
+        "MASTIC XREF": {
+            "essential": {
+                "ABC Item #": "string",
+                "ABC Item Description": "string",
+                "Rebate Profile": "string",
+                "Color Group Description": "string",
+                "Color Group": "string",
+                "Conversion PC to CT": "integer",
+                "Conversion SQ to CT": "string",
+                "Type": "string",
+                "Profile": "string",
+                "Color Code": "string",
+                "SKU": "string",
+                "Ply Gem Category - For Window World and NVR Only": "string",
+                "Ply Gem Description - For Window World and NVR Only": "string",
+                "Item Price Rule - For Window World and NVR Only": "string",
+                "Series - For Window World and NVR Only": "string",
+                "SRP1": "string"
+            },
+            "other": {}
+        },
+        "VARIFORM XREF": {
+            "essential": {
+                "ABC Item #": "string",
+                "ABC Item Description": "string",
+                "Rebate Profile": "string",
+                "Color Code Description": "string",
+                "Color Group": "string",
+                "Color Group Description": "string",
+                "Pricing UOM": "string",
+                "Conversion PC to CT": "string",
+                "Conversion SQ to CT": "string",
+                "Type": "string",
+                "Profile": "string",
+                "Color Code": "string",
+                "SKU": "string",
+                "Ply Gem Category - For Window World and NVR Only": "string",
+                "SRP1": "string",
+                "SRP2": "string"
+            },
+            "other": {}
         }
     },
     "SRS": {
@@ -184,6 +226,47 @@ COLUMN_CONFIGS = {
                 "Difference": "float",
                 "Revised Total Rebate Due": "float"
             }
+        },
+        "MASTIC XREF": {
+            "essential": {
+                "SRS Item #": "string",
+                "Item Description": "string",
+                "Rebate Profile": "string",
+                "Color Group": "string",
+                "Conversion PC to CT": "integer",
+                "Conversion SQ to CT": "string",
+                "Type": "string",
+                "SRS Item Description": "string",
+                "SKU": "string",
+                "Profile": "string",
+                "Color Code": "string",
+                "Color Group Description": "string",
+                "Color Code Description": "string",
+                "Ply Gem Category - For Window World Only": "string",
+                "Ply Gem Description - For Window World Only": "string",
+                "Item Price Rule - For Window World Only": "string",
+                "Series - For Window World Only": "integer",
+                "SRP1": "string"
+            },
+            "other": {}
+        },
+        "VARIFORM XREF": {
+            "essential": {
+                "SRS Item #": "string",
+                "SRS Item Description": "string",
+                "Rebate Profile": "string",
+                "Color Group": "string",
+                "Color Group Description": "string",
+                "Conversion PC to CT": "integer",
+                "Conversion SQ to CT": "string",
+                "Type": "string",
+                "Profile": "string",
+                "Color Code": "integer",
+                "SKU": "string",
+                "SRP1": "string",
+                "SRP2": "string"
+            },
+            "other": {}
         }
     },
     "QXO": {
@@ -250,6 +333,43 @@ COLUMN_CONFIGS = {
                 "Difference": "float",
                 "Total Rebate": "float"
             }
+        },
+        "MASTIC XREF": {
+            "essential": {
+                "Beacon Item #": "string",
+                "Beacon Product #": "string",
+                "Rebate Profile": "string",
+                "Type": "string",
+                "Color Group": "string",
+                "Color Group Description": "string",
+                "Beacon Item Description": "string",
+                "Conversion PC to CT": "integer",
+                "Conversion SQ to CT": "string",
+                "Profile": "string",
+                "Color Code": "string",
+                "SKU": "string",
+                "SRP1": "string",
+                "SRP2": "string"
+            },
+            "other": {}
+        },
+        "VARIFORM XREF": {
+            "essential": {
+                "Beacon Product #": "string",
+                "Beacon Item #": "string",
+                "Beacon Item Description": "string",
+                "Rebate Profile": "string",
+                "Color Group": "string",
+                "Color Group Description": "string",
+                "Conversion PC to CT": "integer",
+                "Conversion SQ to CT": "string",
+                "Type": "string",
+                "Color Code": "string",
+                "Color Code Description": "string",
+                "Profile": "string",
+                "SKU": "string"
+            },
+            "other": {}
         }
     },
     "NVR": {
