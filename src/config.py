@@ -367,7 +367,9 @@ COLUMN_CONFIGS = {
                 "Color Code": "string",
                 "Color Code Description": "string",
                 "Profile": "string",
-                "SKU": "string"
+                "SKU": "string",
+                "SRP1": "string",
+                "SRP2": "string"
             },
             "other": {}
         }
